@@ -23,3 +23,19 @@ class Solution:
         while len(stack) > 0:
             res.append(stack.pop())
         return res
+
+
+import sys
+#设置递归深度
+sys.setrecursionlimit(100000)
+class Solution2:
+    def recursion(self, head: ListNode, res: List[int]):
+        if head:
+            self.recursion(head.next, res)
+            res.append(head.val)
+
+    def printListFromTailToHead(self , listNode: ListNode) -> List[int]:
+        # write code here
+        res = []
+        self.recursion(listNode, res)
+        return res
